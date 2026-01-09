@@ -1,23 +1,32 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, FormEvent } from 'react'
 import './App.css'
 
+interface Todo {
+  id: number
+  text: string
+  completed: boolean
+  createdAt: string
+}
+
+type FilterType = 'all' | 'active' | 'completed'
+
 function App() {
-  const [todos, setTodos] = useState(() => {
+  const [todos, setTodos] = useState<Todo[]>(() => {
     const saved = localStorage.getItem('todos')
     return saved ? JSON.parse(saved) : []
   })
-  const [inputValue, setInputValue] = useState('')
-  const [filter, setFilter] = useState('all')
+  const [inputValue, setInputValue] = useState<string>('')
+  const [filter, setFilter] = useState<FilterType>('all')
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
 
-  const addTodo = (e) => {
+  const addTodo = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (inputValue.trim() === '') return
     
-    const newTodo = {
+    const newTodo: Todo = {
       id: Date.now(),
       text: inputValue.trim(),
       completed: false,
@@ -28,13 +37,13 @@ function App() {
     setInputValue('')
   }
 
-  const toggleTodo = (id) => {
+  const toggleTodo = (id: number) => {
     setTodos(todos.map(todo =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     ))
   }
 
-  const deleteTodo = (id) => {
+  const deleteTodo = (id: number) => {
     setTodos(todos.filter(todo => todo.id !== id))
   }
 

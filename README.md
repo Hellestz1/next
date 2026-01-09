@@ -1,6 +1,6 @@
 # React Todo List
 
-แอปพลิเคชันรายการสิ่งที่ต้องทำ (Todo List) สร้างด้วย React + Vite
+แอปพลิเคชันรายการสิ่งที่ต้องทำ (Todo List) สร้างด้วย React + TypeScript + Vite
 
 ## ✨ ฟีเจอร์
 
@@ -30,6 +30,7 @@ npm run dev
 ## 🛠️ เทคโนโลยีที่ใช้
 
 - React 18
+- TypeScript 5
 - Vite 5
 - CSS3 (Custom Properties, Flexbox, Animations)
 - LocalStorage API
@@ -39,12 +40,15 @@ npm run dev
 ```
 react-todo-list-demo/
 ├── src/
-│   ├── App.jsx      # Component หลัก
-│   ├── App.css      # Styling
-│   ├── main.jsx     # Entry point
-│   └── index.css    # Global styles
+│   ├── App.tsx        # Component หลัก
+│   ├── App.css        # Styling
+│   ├── main.tsx       # Entry point
+│   ├── index.css      # Global styles
+│   └── vite-env.d.ts  # Vite type declarations
 ├── index.html
 ├── package.json
-├── vite.config.js
+├── tsconfig.json      # TypeScript config
+├── tsconfig.node.json # TypeScript config for Node
+├── vite.config.ts     # Vite config
 └── README.md
 ```
