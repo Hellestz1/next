@@ -120,6 +120,7 @@
   padding: 0.35rem;
   background: rgba(45, 74, 62, 0.06);
   border-radius: 12px;
+  background-color: rgb(187, 187, 187);
 }
 
 .filter-btn {
